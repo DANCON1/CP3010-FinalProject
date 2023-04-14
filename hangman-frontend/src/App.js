@@ -8,12 +8,12 @@ import React, { useState, useEffect } from "react";
 
 function App() {
 
-  let [word, setWord] = useState(null);
+  let [word, setWords] = useState(null);
 
   useEffect ( () => {
-    fetch("./wordList.json")
+    fetch("/api/hangman")
     .then(response => response.json())
-    .then(setWord)
+    .then(setWords)
     .catch(e=>console.log(e.message))
   }, [])
 
@@ -21,7 +21,7 @@ function App() {
     <>
       <Navigation />
          <Routes>
-           <Route path="/" element={<Hangman word={(word)} setWord={(setWord)}/>} />
+           <Route path="/" element={<Hangman word={(word)} setWords={(setWords)}/>} />
            <Route path="/stats" element={<Stats />} />
          </Routes>
     </>

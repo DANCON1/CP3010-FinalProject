@@ -9,6 +9,8 @@ import axios from 'axios';
 
 const Hangman = (props) => {
     let word = props.word;
+    console.log(word);
+
     const [guesses, setGuesses] = useState([]);
     const [life, setLife] = useState(5);
     const [lastGuess, setLastGuess] = useState(null);
@@ -75,7 +77,7 @@ const Hangman = (props) => {
         // Reset input field
         e.target.guess.value = '';
         
-        // For dev, restarts game on letter guess + refresh
+        //For dev, restarts game on letter guess + refresh
         //localStorage.removeItem("hangmanGuesses");
         //localStorage.removeItem("hangmanLife");
     }
@@ -89,7 +91,7 @@ const Hangman = (props) => {
     // Status update
     const statusUpdate = () => {
         if (lastGuess === null) {
-          return "Welcome to Hangman!";
+          return "";
         } else if (isGameWon) {
           return "Congratulations, you win!";
         } else if (error) {
