@@ -26,7 +26,45 @@ app.get('/api/hangman', async (req, res) => {
     res.json(wordData);
 })
 
+//update user stat records
+app.post('/api/hangman/update-stats', async (req, res) => {
+    try{
+    // Extract IP address and remainingLife from req
+    const { ipAddress, remainingLife } = req.body;
+  
+    // Store the data in the "stats" collection in MongoDB
+    const client = new MongoClient('mongodb://127.0.0.1:27017');
+    await client.connect();
+    const db = client.db('hangman-db');
+    await db.collection('stats').insertOne({ userIp: ipAddress, gameLife: remainingLife });
+  
+    res.json({ message: 'Stats added successfully' });
+    }
+    catch (error) {
+        console.error('Error adding stats:', error);
+        res.status(500).json({ error: 'Failed to add stats' });
+    }
+  });
+
+//fetch stat records by IP address
+app.post('/api/hangman/stats', async (req, res) => {
+try {
+    // Extract ipAddress from req
+    const { ipAddress } = req.body;
+
+    // Query the "stats" collection in MongoDB for records matching the ipAddress
+    const client = new MongoClient('mongodb://127.0.0.1:27017');
+    await client.connect();
+    const db = client.db('hangman-db');
+    const stats = await db.collection('stats').find({ userIp: ipAddress }).toArray();
+
+    res.json({ stats });
+} catch (error) {
+    console.error('Error querying stats:', error);
+    res.status(500).json({ error: 'Failed to query stats' });
+}
+});
+
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
-//
