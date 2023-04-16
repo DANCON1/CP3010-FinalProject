@@ -1,0 +1,187 @@
+[{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c71c"
+  },
+  "day": 1,
+  "word": "elephant"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c71d"
+  },
+  "day": 2,
+  "word": "pineapple"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c71e"
+  },
+  "day": 3,
+  "word": "guitar"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c71f"
+  },
+  "day": 4,
+  "word": "kangaroo"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c720"
+  },
+  "day": 5,
+  "word": "chocolate"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c721"
+  },
+  "day": 6,
+  "word": "butterfly"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c722"
+  },
+  "day": 7,
+  "word": "watermelon"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c723"
+  },
+  "day": 8,
+  "word": "sunflower"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c724"
+  },
+  "day": 9,
+  "word": "umbrella"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c725"
+  },
+  "day": 10,
+  "word": "giraffe"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c726"
+  },
+  "day": 11,
+  "word": "keyboard"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c727"
+  },
+  "day": 12,
+  "word": "ostrich"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c728"
+  },
+  "day": 13,
+  "word": "pencil"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c729"
+  },
+  "day": 14,
+  "word": "orange"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c72a"
+  },
+  "day": 15,
+  "word": "octopus"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c72b"
+  },
+  "day": 16,
+  "word": "rainbow"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c72c"
+  },
+  "day": 17,
+  "word": "flamingo"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c72d"
+  },
+  "day": 18,
+  "word": "caterpillar"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c72e"
+  },
+  "day": 19,
+  "word": "television"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c72f"
+  },
+  "day": 20,
+  "word": "sunshine"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c730"
+  },
+  "day": 21,
+  "word": "moonlight"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c731"
+  },
+  "day": 22,
+  "word": "firefly"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c732"
+  },
+  "day": 23,
+  "word": "hamburger"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c733"
+  },
+  "day": 24,
+  "word": "birthday"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c734"
+  },
+  "day": 25,
+  "word": "icecream"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c735"
+  },
+  "day": 26,
+  "word": "bicycle"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c736"
+  },
+  "day": 27,
+  "word": "basketball"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c737"
+  },
+  "day": 28,
+  "word": "beach"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c738"
+  },
+  "day": 29,
+  "word": "mountain"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c739"
+  },
+  "day": 30,
+  "word": "flower"
+},{
+  "_id": {
+    "$oid": "6438c2ad8e8516957854c73a"
+  },
+  "day": 31,
+  "word": "jellyfish"
+}]
