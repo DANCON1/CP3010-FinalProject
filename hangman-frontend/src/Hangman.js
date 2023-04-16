@@ -13,16 +13,17 @@ const Hangman = (props) => {
 
     const [guesses, setGuesses] = useState([]);
     const [life, setLife] = useState(5);
+    const currentDay = new Date().getDate();
     const [lastGuess, setLastGuess] = useState(null);
     const [error, setError] = useState(null);
     const [ipAddress, setIpAddress] = useState(null);
 
+    console.log(currentDay);
 
     const getIP = async () => {
         const res = await axios.get("https://api.ipify.org/?format=json");
         console.log(res.data);
         setIpAddress(res.data.ip);
-        console.log(ipAddress);
     };
 
     useEffect(() => {
@@ -31,15 +32,20 @@ const Hangman = (props) => {
     }, []);
 
     useEffect(() => {
-        // Load guesses and life from localStorage when component mounts
+        // Load guesses and life from localStorage when component mounts, reset if new day
         const storedGuesses = localStorage.getItem("hangmanGuesses");
         const storedLife = localStorage.getItem("hangmanLife");
-        if (storedGuesses) {
+        const storedDay = localStorage.getItem("hangmanDay");
+        if (storedGuesses && currentDay == storedDay) {
             setGuesses(JSON.parse(storedGuesses));
         }
-        if (storedLife) {
+        if (storedLife && currentDay == storedDay) {
             setLife(parseInt(storedLife));
         }
+        else if (currentDay !== storedDay) {
+            localStorage.setItem("hangmanDay", currentDay.toString());
+        }
+        console.log(localStorage);
     }, []);
 
     useEffect(() => {
