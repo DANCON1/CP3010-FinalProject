@@ -18,8 +18,6 @@ const Hangman = (props) => {
     const [error, setError] = useState(null);
     const [ipAddress, setIpAddress] = useState(null);
 
-    console.log(currentDay);
-
     const getIP = async () => {
         const res = await axios.get("https://api.ipify.org/?format=json");
         console.log(res.data);
@@ -43,6 +41,8 @@ const Hangman = (props) => {
             setLife(parseInt(storedLife));
         }
         else if (currentDay !== storedDay) {
+            localStorage.setItem("hangmanGuesses", []);
+            localStorage.setItem("hangmanLife", 5);
             localStorage.setItem("hangmanDay", currentDay.toString());
         }
         console.log(localStorage);
@@ -82,10 +82,6 @@ const Hangman = (props) => {
         }
         // Reset input field
         e.target.guess.value = '';
-        
-        //For dev, restarts game on letter guess + refresh
-        //localStorage.removeItem("hangmanGuesses");
-        //localStorage.removeItem("hangmanLife");
     }
 
     // Calculate remaining life
@@ -94,12 +90,32 @@ const Hangman = (props) => {
     // Check if game is won
     const isGameWon = wordArray.every((char) => guesses.includes(char.toUpperCase()));
 
+    //Update stats collection in database
+    const updateStats = async (ipAddress, remainingLife) => {
+        try {
+          // Make POST request to update stats in server
+          await axios.post('/api/hangman/update-stats', {
+            ipAddress: ipAddress, // Pass ipAddress variable
+            remainingLife: remainingLife // Pass remainingLife variable
+          });
+          console.log("Stats updated successfully");
+        } catch (error) {
+          console.error('Error updating stats:', error);
+        }
+      };
+
     // Status update
     const statusUpdate = () => {
         if (lastGuess === null) {
           return "";
         } else if (isGameWon) {
+          //update db
+          updateStats(ipAddress, remainingLife);
           return "Congratulations, you win!";
+        } else if (remainingLife == 0) {
+          //update db
+          updateStats(ipAddress, remainingLife);
+          return `Sorry, you lose! The letter "${lastGuess.toUpperCase()}" is not in the word. Try again tomorrow!`;
         } else if (error) {
           return error;
         } else if (wordArray.includes(lastGuess.toLowerCase())) {
@@ -111,6 +127,11 @@ const Hangman = (props) => {
       
 
     return (
+    <div
+      style={{
+        backgroundColor: '#1c2e4a', // Dark blue background
+        color: '#ffffff', // White font
+      }}>
         <Container fluid='sm'>
             <Row>
                 <Col>
@@ -170,10 +191,8 @@ const Hangman = (props) => {
             <Row>
                 <p>{statusUpdate()}</p>
             </Row>
-            <Row>
-                <p>{ipAddress && <p>IP Address: {ipAddress}</p>}</p>
-            </Row>
         </Container>
+    </div>
     );
 };
 
